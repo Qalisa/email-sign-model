@@ -4,6 +4,7 @@
 readonly OUTPUT_FOLDER=./signatures
 readonly INPUT_ENVS_FILES=./persons
 readonly SIGNATURE_TEMPLATE_FILE=sign-template.html
+readonly LOGO_FILE=logo.png
 
 #
 rm -rf $OUTPUT_FOLDER
@@ -14,6 +15,9 @@ mkdir $OUTPUT_FOLDER
 readonly OUTPUT_FOLDER_R=`realpath $OUTPUT_FOLDER`
 readonly PERSONS_FOLDER_R=`realpath $INPUT_ENVS_FILES`
 readonly PERSONS_ENV_FILES=`find $PERSONS_FOLDER_R -maxdepth 1 -type f -not -path '*/\.*' | sort`
+
+//
+export IMG_BASE64=`base64 -i $LOGO_FILE`
 
 #
 for i in $PERSONS_ENV_FILES;
