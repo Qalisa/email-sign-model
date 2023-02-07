@@ -1,5 +1,5 @@
 # email-sign-model
-Modèle de signature mail Qalisa
+Signature Mail de Qalisa
 
-## Fonctionnement
-Les signatures sont auto-générées en tant qu'artefacts. Nécessite un nom de commit formaté: "Release 1.0-rc Company Signatures"
+## Infos
+Retrouvez les signatures générées pour tous les membres de l'organisation dans l'encart "Releases".
