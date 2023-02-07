@@ -14,20 +14,11 @@ jobs:
         uses: actions/checkout@v2
       - name: Generate signatures
         run: ./generate_signatures.sh   
-      - name: create-release
-        uses: ChanTsune/release-with-commit@v2.8.0
+      - uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          regexp: "Release ((\d+([.]\d+)*)-(alpha|beta|rc)\d*)((\s|\S)*)"
-          regexp_options: "us"
-          release_name: "version $1"
-          tag_name: "v$1"
-          body: "$5"
-          draft: false
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' # This token is provided by Actions, you do not need to create your own token
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: signatures/**
-          tag_name: "${{ steps.create-release.outputs.tag_name }}"
+          automatic_release_tag: "latest"
+          title: "Organisation e-mail signatures"
+          files: |
+            signatures/**
