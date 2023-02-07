@@ -14,7 +14,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Generate signatures
         run: ./generate_signatures.sh   
-      - uses: ChanTsune/release-with-commit@v2.8.0
+      - name: create-release
+        uses: ChanTsune/release-with-commit@v2.8.0
         with:
           regexp: "Release ((\\d+([.]\\d+)*)-(alpha|beta|rc)\\d*)((\\s|\\S)*)"
           regexp_options: "us"
@@ -29,3 +30,4 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: signatures/**
+          tag_name: "${{ steps.create-release.outputs.tag_name }}"
