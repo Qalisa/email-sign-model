@@ -1,0 +1,21 @@
+# Publish GitHub workflow artifacts tutorial example
+name: Generate & Publish Mail Signatures
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+       
+  generate_publish_mail_sign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+      - name: Generate signatures
+        run: ./generate_signatures.sh    
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with: 
+          name: assets-for-download
+          path: signatures
