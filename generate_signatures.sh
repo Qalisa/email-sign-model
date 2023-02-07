@@ -4,7 +4,7 @@
 readonly OUTPUT_FOLDER=./signatures
 readonly INPUT_ENVS_FILES=./persons
 readonly SIGNATURE_TEMPLATE_FILE=sign-template.html
-readonly LOGO_FILE=logo.png
+readonly LOGO_FILE=logo_512.png
 
 #
 rm -rf $OUTPUT_FOLDER
